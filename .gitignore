@@ -3,6 +3,7 @@ images\*
 cookies.*
 *.html
 *.xml
+*.db
 test*
 venv
 vene\
