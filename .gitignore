@@ -1,5 +1,9 @@
 images/*
 images\*
+*__pycache__
+*/__pycache__
+*\__pycache__
+__pycache__
 cookies.*
 *.html
 *.xml
