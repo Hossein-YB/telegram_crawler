@@ -1,3 +1,5 @@
+from typing import List
+
 from peewee import (SqliteDatabase, Model, BigIntegerField, BooleanField, DateTimeField, ForeignKeyField, IntegerField, \
                     CharField, TextField)
 import datetime
@@ -20,6 +22,10 @@ class AdminsTBL(BaseModel):
     @classmethod
     def insert_admin(cls, user_id: int, is_sudo: bool = False, is_active: bool = True) -> "AdminsTBL":
         return cls.get_or_create(user_id=user_id, is_sudo=is_sudo, is_active=is_active, )
+
+    @classmethod
+    def get_admin_ids(cls) -> List[int]:
+        return cls.select(cls.user_id).where(cls.is_active)
 
 
 class ChatsTBL(BaseModel):
